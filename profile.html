@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap - User Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="page-transitions.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="dashboard.js" as="script">
+    <link rel="preload" href="auth.js" as="script">
+    <link rel="preload" href="page-transitions.js" as="script">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <img src="skillswap-logo.png.png" alt="SkillSwap" class="logo">
+                </div>
+                <button class="btn-close-sidebar d-lg-none" id="closeSidebar" title="Close Sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <ul class="sidebar-nav">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="matching.html" class="nav-link">
+                        <i class="fas fa-handshake"></i>
+                        <span>Match</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="chat.html" class="nav-link">
+                        <i class="fas fa-comments"></i>
+                        <span>Chat</span>
+                        <span class="badge bg-danger rounded-pill ms-2">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="verification.html" class="nav-link">
+                        <i class="fas fa-award"></i>
+                        <span>Badges</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="feedback.html" class="nav-link">
+                        <i class="fas fa-star"></i>
+                        <span>Feedback</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="profile.html" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=1" alt="User Avatar" class="avatar">
+                    <div class="user-info">
+                        <h6 class="mb-0">Alex Thompson</h6>
+                        <small class="text-muted">View Profile</small>
+                    </div>
+                </div>
+                
+
+                <a href="#" class="nav-link logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Header -->
+            <div class="mobile-header d-lg-none">
+                <button class="btn-toggle-sidebar" id="toggleSidebar" title="Toggle Sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo-container">
+                    <img src="skillswap-logo.png.png" alt="SkillSwap" class="mobile-logo">
+                </div>
+            </div>
+
+            <div class="container py-4">
+                <!-- Profile Header -->
+                <div class="profile-header">
+                    <div class="profile-cover">
+                        <img src="https://source.unsplash.com/random/1200x400/?nature" alt="Cover Photo" class="cover-photo">
+                        <button class="btn-edit-cover" title="Edit cover photo">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    <div class="profile-info">
+                        <div class="profile-avatar">
+                            <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=1" alt="Profile Picture" class="avatar-img">
+                            <button class="btn-edit-avatar" title="Edit profile picture">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="profile-details">
+                            <h1 class="profile-name">Alex Thompson</h1>
+                            <p class="profile-username">@alexthompson</p>
+                            <div class="profile-meta">
+                                <span class="profile-role">
+                                    <i class="fas fa-user-graduate"></i>
+                                    Mentor & Learner
+                                </span>
+                                <span class="profile-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    San Francisco, CA
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Me Section -->
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h2>About Me</h2>
+                    </div>
+                    <div class="section-content">
+                        <p class="profile-bio">
+                            Passionate about technology and education. I love sharing knowledge and learning from others.
+                            Currently working as a software developer and teaching web development on SkillSwap.
+                        </p>
+                        <div class="profile-social">
+                            <a href="#" class="social-link" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-link" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                        <div class="profile-badges">
+                            <span class="badge bg-primary">Verified Pro</span>
+                            <span class="badge bg-success">Top Mentor</span>
+                            <span class="badge bg-info">Active Learner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h2>Skills</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="skills-title">Skills Offered</h3>
+                                <div class="skills-list">
+                                    <span class="skill-tag">
+                                        <i class="fab fa-js"></i>
+                                        JavaScript
+                                    </span>
+                                    <span class="skill-tag">
+                                        <i class="fab fa-react"></i>
+                                        React
+                                    </span>
+                                    <span class="skill-tag">
+                                        <i class="fab fa-node-js"></i>
+                                        Node.js
+                                    </span>
+                                    <span class="skill-tag">
+                                        <i class="fab fa-python"></i>
+                                        Python
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="skills-title">Skills Wanted</h3>
+                                <div class="skills-list">
+                                    <span class="skill-tag wanted">
+                                        <i class="fas fa-paint-brush"></i>
+                                        UI/UX Design
+                                    </span>
+                                    <span class="skill-tag wanted">
+                                        <i class="fas fa-database"></i>
+                                        Data Science
+                                    </span>
+                                    <span class="skill-tag wanted">
+                                        <i class="fas fa-language"></i>
+                                        Spanish
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Availability Section -->
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h2>Availability</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="availability-title">Available Days</h3>
+                                <div class="availability-days">
+                                    <span class="day-tag">Mon</span>
+                                    <span class="day-tag">Wed</span>
+                                    <span class="day-tag">Fri</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="availability-title">Time Slots</h3>
+                                <div class="availability-times">
+                                    <span class="time-tag">Morning</span>
+                                    <span class="time-tag">Evening</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="session-preferences">
+                            <div class="preference-item">
+                                <i class="fas fa-video"></i>
+                                <span>Virtual Sessions</span>
+                            </div>
+                            <div class="preference-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Pacific Time (PT)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats & Achievements -->
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h2>Stats & Achievements</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="row g-4">
+                            <div class="col-md-3">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h3>4.8</h3>
+                                        <p>Average Rating</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h3>127</h3>
+                                        <p>Sessions Completed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-award"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h3>12</h3>
+                                        <p>Badges Earned</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-gem"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h3>1,250</h3>
+                                        <p>Skill Points</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Section -->
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h2>Reviews & Endorsements</h2>
+                        <button class="btn btn-outline-primary btn-sm">View All</button>
+                    </div>
+                    <div class="section-content">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=sarah" alt="Sarah Chen" class="reviewer-avatar">
+                                        <div class="reviewer-info">
+                                            <h4>Sarah Chen</h4>
+                                            <div class="review-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="review-text">
+                                        Alex is an amazing mentor! He helped me understand React hooks in a way that finally clicked.
+                                        Very patient and knowledgeable.
+                                    </p>
+                                    <div class="review-skill">
+                                        <i class="fab fa-react"></i>
+                                        React.js
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=michael" alt="Michael Rodriguez" class="reviewer-avatar">
+                                        <div class="reviewer-info">
+                                            <h4>Michael Rodriguez</h4>
+                                            <div class="review-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="review-text">
+                                        Great Python tutor! Alex explains complex concepts in a simple way and provides
+                                        practical examples that really help with understanding.
+                                    </p>
+                                    <div class="review-skill">
+                                        <i class="fab fa-python"></i>
+                                        Python
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="profile-cta">
+                    <button class="btn btn-primary btn-lg">
+                        <i class="fas fa-handshake"></i>
+                        Send Match Request
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="auth.js"></script>
+    <script src="common.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="profile.js"></script>
+    <script src="page-transitions.js"></script>
+    <script src="performance-optimizations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // This is now handled by the loadProfileFromSettings function in profile.js
+            // We'll keep this as a fallback for any elements not covered by the main function
+            const storedUser = localStorage.getItem('currentUser');
+            if (storedUser) {
+                const user = JSON.parse(storedUser);
+                // Update any additional elements with id="userName" if they exist
+                const userNameElement = document.getElementById('userName');
+                if (userNameElement && user.name) {
+                    userNameElement.textContent = user.name;
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

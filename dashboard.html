@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap Dashboard</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="page-transitions.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="dashboard.js" as="script">
+    <link rel="preload" href="auth.js" as="script">
+    <link rel="preload" href="page-transitions.js" as="script">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <img src="skillswap-logo.png.png" alt="SkillSwap" class="logo">
+                </div>
+                <button class="btn-close-sidebar d-lg-none" id="closeSidebar" title="Close Sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <ul class="sidebar-nav">
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="matching.html" class="nav-link">
+                        <i class="fas fa-handshake"></i>
+                        <span>Match</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-comments"></i>
+                        <span>Chat</span>
+                        <span class="badge bg-danger rounded-pill ms-2">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-award"></i>
+                        <span>Badges</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-star"></i>
+                        <span>Feedback</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=1" alt="User Avatar" class="avatar">
+                    <div class="user-info">
+                        <h6 class="mb-0">Alex Thompson</h6>
+                        <small class="text-muted">View Profile</small>
+                    </div>
+                </div>
+                <a href="#" class="nav-link logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Header -->
+            <div class="mobile-header d-lg-none">
+                <button class="btn-toggle-sidebar" id="toggleSidebar" title="Toggle Sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo-container">
+                    <img src="C:/Users/hp/Downloads/Untitled design.png" alt="SkillSwap" class="mobile-logo">
+                </div>
+            </div>
+
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h1>Hi, <span id="userName">User</span> 👋</h1>
+                <!-- <h1>Hi, Alex 👋</h1> -->
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+                    <i class="fas fa-edit me-2"></i>Edit Profile
+                </button>
+            </div>
+
+            <!-- User Info Card -->
+            <div class="row g-4 mb-4">
+                <div class="col-lg-8">
+                    <div class="card user-info-card">
+                        <div class="card-body">
+                            <div class="user-header">
+                                <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=1" alt="User Avatar" class="user-avatar">
+                                <div class="user-details">
+                                    <h1>Hi, <span id="userName">kapil</span> 👋</h1>
+                                    <!-- <h2>Alex Thompson</h2> -->
+                                    <p class="text-muted">Frontend Developer | Lifelong Learner</p>
+                                    <div class="verification-badge">
+                                        <i class="fas fa-check-circle"></i> Verified
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="skills-section mt-4">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Skills Offered</h5>
+                                        <div class="skill-tags">
+                                            <span class="skill-tag">JavaScript</span>
+                                            <span class="skill-tag">React</span>
+                                            <span class="skill-tag">CSS Grid</span>
+                                            <span class="skill-tag">Node.js</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Skills Wanted</h5>
+                                        <div class="skill-tags">
+                                            <span class="skill-tag wanted">Python</span>
+                                            <span class="skill-tag wanted">UX Design</span>
+                                            <span class="skill-tag wanted">Docker</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="availability-section mt-4">
+                                <h5>Availability</h5>
+                                <p><i class="far fa-clock me-2"></i>Weekdays: 6 PM - 9 PM EST</p>
+                                <p><i class="far fa-calendar me-2"></i>Weekends: Flexible</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card stats-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Statistics</h5>
+                            <div class="stat-item">
+                                <i class="fas fa-trophy"></i>
+                                <div class="stat-info">
+                                    <h3>1,250 XP</h3>
+                                    <p>Skill Credits</p>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-award"></i>
+                                <div class="stat-info">
+                                    <h3>42</h3>
+                                    <p>Sessions Completed</p>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-star"></i>
+                                <div class="stat-info">
+                                    <h3>4.8</h3>
+                                    <p>Average Rating</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="card recent-activity">
+                <div class="card-body">
+                    <h5 class="card-title">Recent Activity</h5>
+                    <div class="activity-timeline">
+                        <div class="activity-item">
+                            <div class="activity-icon bg-primary">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h6>JavaScript Session with Sarah Chen</h6>
+                                <p class="text-muted">July 15, 2024</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon bg-success">
+                                <i class="fas fa-react"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h6>React Session with Mike Davis</h6>
+                                <p class="text-muted">July 10, 2024</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" title="Close Modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProfileForm">
+                        <div class="mb-3">
+                            <label class="form-label">Profile Photo</label>
+                            <div class="d-flex align-items-center">
+                                <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=1" alt="Current Avatar" class="edit-avatar me-3">
+                                <button type="button" class="btn btn-outline-primary">Change Photo</button>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label" for="fullName">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" value="Alex Thompson" placeholder="Enter your full name">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="title">Title</label>
+                                <input type="text" class="form-control" id="title" value="Frontend Developer" placeholder="Enter your professional title">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="bio">Bio</label>
+                            <textarea class="form-control" id="bio" rows="3" placeholder="Write a short bio about yourself">Frontend Developer passionate about creating beautiful user experiences. Lifelong learner.</textarea>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Skills Offered</label>
+                                <select class="form-select" multiple aria-label="Select skills you can teach">
+                                    <option selected>JavaScript</option>
+                                    <option selected>React</option>
+                                    <option selected>CSS Grid</option>
+                                    <option selected>Node.js</option>
+                                    <option>Vue.js</option>
+                                    <option>Angular</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Skills Wanted</label>
+                                <select class="form-select" multiple aria-label="Select skills you want to learn">
+                                    <option selected>Python</option>
+                                    <option selected>UX Design</option>
+                                    <option selected>Docker</option>
+                                    <option>AWS</option>
+                                    <option>Machine Learning</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label" for="weekdayAvailability">Weekday Availability</label>
+                                <input type="text" class="form-control" id="weekdayAvailability" value="6 PM - 9 PM EST" placeholder="e.g., 6 PM - 9 PM EST">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="weekendAvailability">Weekend Availability</label>
+                                <input type="text" class="form-control" id="weekendAvailability" value="Flexible" placeholder="e.g., Flexible, 10 AM - 5 PM">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="auth.js"></script>
+    <script src="common.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="page-transitions.js"></script>
+    <script src="performance-optimizations.js"></script>
+    <!-- User information is now handled by dashboard.js and common.js -->
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap - Connection Requests</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="requests.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <img src="skillswap-logo.png.png" alt="SkillSwap" class="logo">
+                </div>
+                <button class="btn-close-sidebar d-lg-none" id="closeSidebar" title="Close Sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <ul class="sidebar-nav">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="matching.html" class="nav-link">
+                        <i class="fas fa-handshake"></i>
+                        <span>Match</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="requests.html" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Requests</span>
+                        <span class="badge bg-danger rounded-pill ms-2">2</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="chat.html" class="nav-link">
+                        <i class="fas fa-comments"></i>
+                        <span>Chat</span>
+                        <span class="badge bg-danger rounded-pill ms-2">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="verification.html" class="nav-link">
+                        <i class="fas fa-award"></i>
+                        <span>Badges</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="feedback.html" class="nav-link">
+                        <i class="fas fa-star"></i>
+                        <span>Feedback</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=1" alt="User Avatar" class="avatar">
+                    <div class="user-info">
+                        <h6 class="mb-0">Alex Thompson</h6>
+                        <small class="text-muted">View Profile</small>
+                    </div>
+                </div>
+                <a href="#" class="nav-link logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Header -->
+            <div class="mobile-header d-lg-none">
+                <button class="btn-toggle-sidebar" id="toggleSidebar" title="Toggle Sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo-container">
+                    <img src="skillswap-logo.png.png" alt="SkillSwap" class="mobile-logo">
+                </div>
+            </div>
+
+            <div class="container py-4">
+                <h1 class="mb-4">Connection Requests</h1>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="nav nav-tabs mb-4" id="requestTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="received-tab" data-bs-toggle="tab" data-bs-target="#received" type="button" role="tab" aria-controls="received" aria-selected="true">
+                                    Received
+                                    <span class="badge bg-danger ms-2">2</span>
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="sent-tab" data-bs-toggle="tab" data-bs-target="#sent" type="button" role="tab" aria-controls="sent" aria-selected="false">
+                                    Sent
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="connected-tab" data-bs-toggle="tab" data-bs-target="#connected" type="button" role="tab" aria-controls="connected" aria-selected="false">
+                                    Connected
+                                </button>
+                            </li>
+                        </ul>
+                        
+                        <div class="tab-content" id="requestTabsContent">
+                            <!-- Received Requests Tab -->
+                            <div class="tab-pane fade show active" id="received" role="tabpanel" aria-labelledby="received-tab">
+                                <div id="receivedRequestsList" class="request-list">
+                                    <!-- Request items will be populated here -->
+                                </div>
+                                
+                                <!-- No requests message -->
+                                <div id="noReceivedRequests" class="text-center py-5 d-none">
+                                    <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+                                    <h3>No connection requests</h3>
+                                    <p class="text-muted">When someone sends you a connection request, it will appear here</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Sent Requests Tab -->
+                            <div class="tab-pane fade" id="sent" role="tabpanel" aria-labelledby="sent-tab">
+                                <div id="sentRequestsList" class="request-list">
+                                    <!-- Sent request items will be populated here -->
+                                </div>
+                                
+                                <!-- No sent requests message -->
+                                <div id="noSentRequests" class="text-center py-5 d-none">
+                                    <i class="fas fa-paper-plane fa-3x text-muted mb-3"></i>
+                                    <h3>No sent requests</h3>
+                                    <p class="text-muted">Requests you've sent will appear here</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Connected Users Tab -->
+                            <div class="tab-pane fade" id="connected" role="tabpanel" aria-labelledby="connected-tab">
+                                <div id="connectedUsersList" class="request-list">
+                                    <!-- Connected user items will be populated here -->
+                                </div>
+                                
+                                <!-- No connections message -->
+                                <div id="noConnections" class="text-center py-5 d-none">
+                                    <i class="fas fa-users fa-3x text-muted mb-3"></i>
+                                    <h3>No connections yet</h3>
+                                    <p class="text-muted">Go to the Match page to find and connect with other users</p>
+                                    <a href="matching.html" class="btn btn-primary mt-3">
+                                        <i class="fas fa-handshake me-2"></i>Find Matches
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Container for Notifications -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="dashboard.js"></script>
+    <script src="requests.js"></script>
+</body>
+</html>

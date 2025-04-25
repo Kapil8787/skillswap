@@ -1,0 +1,128 @@
+/* 
+ * SkillSwap - Page Transitions and Loading Styles
+ * Styles for smooth page transitions and loading indicators
+ */
+
+/* Main content transition */
+.main-content {
+    transition: opacity 300ms ease;
+}
+
+/* Page loading indicator */
+.page-loading-indicator {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+/* Optimize transitions for all interactive elements */
+.nav-link, 
+.btn, 
+.form-control, 
+.card, 
+.list-group-item {
+    transition: all 200ms ease-in-out;
+}
+
+/* Optimize images for faster loading */
+img {
+    content-visibility: auto;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Improve perceived performance with skeleton loading */
+.skeleton-loading {
+    position: relative;
+    overflow: hidden;
+    background-color: #e9ecef;
+    border-radius: 4px;
+}
+
+.skeleton-loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(255, 255, 255, 0) 100%);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Optimize for touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .nav-link, .btn {
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* Improve scrolling performance */
+* {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+/* Optimize for high-performance animations */
+.sidebar, 
+.main-content, 
+.modal, 
+.dropdown-menu {
+    will-change: transform, opacity;
+}
+
+/* Smooth navigation transitions */
+.smooth-transition {
+    transition: all 0.3s ease;
+}
+
+.smooth-transition.clicked {
+    transform: scale(0.97);
+    opacity: 0.8;
+}
+
+/* Make user profile clickable */
+.user-profile {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.user-profile:hover {
+    transform: translateY(-2px);
+}
+
+/* Improve loading performance */
+.main-content {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

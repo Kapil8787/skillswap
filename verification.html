@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap - Skill Verification & Micro-Challenges</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="verification.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <img src="skillswap-logo.png.png" alt="SkillSwap" class="logo">
+                </div>
+                <button class="btn-close-sidebar d-lg-none" id="closeSidebar" title="Close Sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <ul class="sidebar-nav">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="matching.html" class="nav-link">
+                        <i class="fas fa-handshake"></i>
+                        <span>Match</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="chat.html" class="nav-link">
+                        <i class="fas fa-comments"></i>
+                        <span>Chat</span>
+                        <span class="badge bg-danger rounded-pill ms-2">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="verification.html" class="nav-link">
+                        <i class="fas fa-award"></i>
+                        <span>Badges</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="feedback.html" class="nav-link">
+                        <i class="fas fa-star"></i>
+                        <span>Feedback</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=1" alt="User Avatar" class="avatar">
+                    <div class="user-info">
+                        <h6 class="mb-0">Alex Thompson</h6>
+                        <small class="text-muted">View Profile</small>
+                    </div>
+                </div>
+                <a href="#" class="nav-link logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Header -->
+            <div class="mobile-header d-lg-none">
+                <button class="btn-toggle-sidebar" id="toggleSidebar" title="Toggle Sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo-container">
+                    <img src="skillswap-logo.png.png" alt="SkillSwap" class="mobile-logo">
+                </div>
+            </div>
+
+            <div class="container verification-container">
+                <!-- Header Section -->
+                <div class="verification-header">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <h1 class="verification-title">Skill Verification & Micro-Challenges</h1>
+                            <p class="verification-subtitle">Verify your skills, complete challenges, and earn badges to showcase your expertise.</p>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="user-verification-card">
+                                <div class="user-verification-avatar">
+                                    <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=1" alt="User Avatar">
+                                </div>
+                                <div class="user-verification-info">
+                                    <h3 class="user-verification-name">Alex Thompson</h3>
+                                    <div class="user-verification-level">
+                                        <span class="badge bg-primary">Intermediate Learner</span>
+                                    </div>
+                                    <div class="user-verification-stats">
+                                        <div class="stat-item">
+                                            <i class="fas fa-award"></i>
+                                            <span>12 Badges</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <i class="fas fa-star"></i>
+                                            <span>1,250 XP</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Available Challenges Section -->
+                <div class="verification-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Available Challenges</h2>
+                        <div class="section-filters">
+                            <select class="form-select" id="skillFilter" aria-label="Filter by skill">
+                                <option value="all">All Skills</option>
+                                <option value="javascript">JavaScript</option>
+                                <option value="python">Python</option>
+                                <option value="design">UI/UX Design</option>
+                                <option value="data">Data Science</option>
+                            </select>
+                            <select class="form-select" id="difficultyFilter" aria-label="Filter by difficulty">
+                                <option value="all">All Difficulties</option>
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row g-4" id="challengesGrid">
+                        <!-- Challenge Card 1 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="challenge-card">
+                                <div class="challenge-header">
+                                    <h3 class="challenge-title">JavaScript Fundamentals</h3>
+                                    <span class="badge bg-success">Easy</span>
+                                </div>
+                                <p class="challenge-description">Test your knowledge of JavaScript basics including variables, functions, and control structures.</p>
+                                <div class="challenge-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success progress-0" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript Fundamentals progress"></div>
+                                    </div>
+                                    <span class="progress-text">0% Complete</span>
+                                </div>
+                                <button class="btn btn-challenge" data-bs-toggle="modal" data-bs-target="#challengeModal" data-challenge="javascript-basics">
+                                    <i class="fas fa-play-circle me-2"></i>Take Challenge
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Challenge Card 2 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="challenge-card">
+                                <div class="challenge-header">
+                                    <h3 class="challenge-title">React Hooks</h3>
+                                    <span class="badge bg-warning">Medium</span>
+                                </div>
+                                <p class="challenge-description">Demonstrate your understanding of React hooks like useState, useEffect, and useContext.</p>
+                                <div class="challenge-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning progress-0" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="React Hooks progress"></div>
+                                    </div>
+                                    <span class="progress-text">0% Complete</span>
+                                </div>
+                                <button class="btn btn-challenge" data-bs-toggle="modal" data-bs-target="#challengeModal" data-challenge="react-hooks">
+                                    <i class="fas fa-play-circle me-2"></i>Take Challenge
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Challenge Card 3 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="challenge-card">
+                                <div class="challenge-header">
+                                    <h3 class="challenge-title">CSS Grid Layout</h3>
+                                    <span class="badge bg-info">Easy</span>
+                                </div>
+                                <p class="challenge-description">Create responsive layouts using CSS Grid and demonstrate your understanding of grid properties.</p>
+                                <div class="challenge-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info progress-0" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="CSS Grid Layout progress"></div>
+                                    </div>
+                                    <span class="progress-text">0% Complete</span>
+                                </div>
+                                <button class="btn btn-challenge" data-bs-toggle="modal" data-bs-target="#challengeModal" data-challenge="css-grid">
+                                    <i class="fas fa-play-circle me-2"></i>Take Challenge
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Challenge Card 4 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="challenge-card">
+                                <div class="challenge-header">
+                                    <h3 class="challenge-title">Node.js API Development</h3>
+                                    <span class="badge bg-danger">Hard</span>
+                                </div>
+                                <p class="challenge-description">Build a RESTful API using Node.js and Express, implementing proper error handling and authentication.</p>
+                                <div class="challenge-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-danger progress-0" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Node.js API Development progress"></div>
+                                    </div>
+                                    <span class="progress-text">0% Complete</span>
+                                </div>
+                                <button class="btn btn-challenge" data-bs-toggle="modal" data-bs-target="#challengeModal" data-challenge="node-api">
+                                    <i class="fas fa-play-circle me-2"></i>Take Challenge
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Challenge Card 5 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="challenge-card">
+                                <div class="challenge-header">
+                                    <h3 class="challenge-title">UI/UX Design Principles</h3>
+                                    <span class="badge bg-warning">Medium</span>
+                                </div>
+                                <p class="challenge-description">Apply design principles to create user-friendly interfaces and improve user experience.</p>
+                                <div class="challenge-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning progress-0" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="UI/UX Design Principles progress"></div>
+                                    </div>
+                                    <span class="progress-text">0% Complete</span>
+                                </div>
+                                <button class="btn btn-challenge" data-bs-toggle="modal" data-bs-target="#challengeModal" data-challenge="ui-ux">
+                                    <i class="fas fa-play-circle me-2"></i>Take Challenge
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Challenge Card 6 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="challenge-card">
+                                <div class="challenge-header">
+                                    <h3 class="challenge-title">Python Data Analysis</h3>
+                                    <span class="badge bg-danger">Hard</span>
+                                </div>
+                                <p class="challenge-description">Analyze datasets using Python libraries like Pandas and NumPy, and visualize results with Matplotlib.</p>
+                                <div class="challenge-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-danger progress-0" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Python Data Analysis progress"></div>
+                                    </div>
+                                    <span class="progress-text">0% Complete</span>
+                                </div>
+                                <button class="btn btn-challenge" data-bs-toggle="modal" data-bs-target="#challengeModal" data-challenge="python-data">
+                                    <i class="fas fa-play-circle me-2"></i>Take Challenge
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Challenges Section -->
+                <div class="verification-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Completed Challenges</h2>
+                    </div>
+
+                    <div class="completed-challenges">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Skill</th>
+                                        <th>Challenge</th>
+                                        <th>Score</th>
+                                        <th>Date Completed</th>
+                                        <th>Badge</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>JavaScript</td>
+                                        <td>DOM Manipulation</td>
+                                        <td>
+                                            <div class="score-badge score-high">95%</div>
+                                        </td>
+                                        <td>June 15, 2024</td>
+                                        <td>
+                                            <i class="fas fa-award text-warning" title="Gold Badge"></i>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">Retake</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>CSS</td>
+                                        <td>Flexbox Layout</td>
+                                        <td>
+                                            <div class="score-badge score-medium">85%</div>
+                                        </td>
+                                        <td>June 10, 2024</td>
+                                        <td>
+                                            <i class="fas fa-award text-secondary" title="Silver Badge"></i>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">Retake</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>HTML</td>
+                                        <td>Semantic HTML</td>
+                                        <td>
+                                            <div class="score-badge score-high">92%</div>
+                                        </td>
+                                        <td>June 5, 2024</td>
+                                        <td>
+                                            <i class="fas fa-award text-warning" title="Gold Badge"></i>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">Retake</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Challenge Modal -->
+    <div class="modal fade" id="challengeModal" tabindex="-1" aria-labelledby="challengeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="challengeModalLabel">JavaScript Fundamentals</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="challenge-intro">
+                        <p>This challenge will test your knowledge of JavaScript fundamentals. You'll need to answer 10 multiple-choice questions and complete 2 coding exercises.</p>
+                        <div class="challenge-info">
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Estimated time: 15-20 minutes</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-trophy"></i>
+                                <span>XP Reward: 100 points</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-award"></i>
+                                <span>Badge: JavaScript Basics</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="challenge-content d-none">
+                        <!-- Challenge content will be loaded dynamically -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="startChallengeBtn">Start Challenge</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="dashboard.js"></script>
+    <script src="verification.js"></script>
+</body>
+</html> 

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap - Community & Feedback</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <img src="skillswap-logo.png.png" alt="SkillSwap" class="logo">
+                </div>
+                <button class="btn-close-sidebar d-lg-none" id="closeSidebar" title="Close Sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <ul class="sidebar-nav">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="matching.html" class="nav-link">
+                        <i class="fas fa-handshake"></i>
+                        <span>Match</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="chat.html" class="nav-link">
+                        <i class="fas fa-comments"></i>
+                        <span>Chat</span>
+                        <span class="badge bg-danger rounded-pill ms-2">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="verification.html" class="nav-link">
+                        <i class="fas fa-award"></i>
+                        <span>Badges</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="feedback.html" class="nav-link">
+                        <i class="fas fa-star"></i>
+                        <span>Feedback</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=1" alt="User Avatar" class="avatar">
+                    <div class="user-info">
+                        <h6 class="mb-0">Alex Thompson</h6>
+                        <small class="text-muted">View Profile</small>
+                    </div>
+                </div>
+                <a href="#" class="nav-link logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Header -->
+            <div class="mobile-header d-lg-none">
+                <button class="btn-toggle-sidebar" id="toggleSidebar" title="Toggle Sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo-container">
+                    <img src="skillswap-logo.png.png" alt="SkillSwap" class="mobile-logo">
+                </div>
+            </div>
+
+            <div class="container py-4">
+                <div class="welcome-section">
+                    <h1>Community & Feedback</h1>
+                    <p class="text-muted">Share your experience and connect with the SkillSwap community</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="row g-4 mb-4">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="stat-icon bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                                        <i class="fas fa-star text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="mb-0">4.8</h3>
+                                        <p class="text-muted mb-0">Average Rating</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="stat-icon bg-success bg-opacity-10 rounded-circle p-3 me-3">
+                                        <i class="fas fa-comments text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="mb-0">1,250+</h3>
+                                        <p class="text-muted mb-0">Reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="stat-icon bg-info bg-opacity-10 rounded-circle p-3 me-3">
+                                        <i class="fas fa-users text-info"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="mb-0">5,000+</h3>
+                                        <p class="text-muted mb-0">Community Members</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Section -->
+                <div class="card mb-4">
+                    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Recent Reviews</h5>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                            <i class="fas fa-plus me-2"></i>Write a Review
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <!-- Review 1 -->
+                        <div class="review-item border-bottom pb-3 mb-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=sarah" alt="Sarah Chen" class="rounded-circle me-2" width="40">
+                                <div>
+                                    <h6 class="mb-0">Sarah Chen</h6>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <small class="text-muted ms-auto">June 18, 2024</small>
+                            </div>
+                            <p class="mb-2">SkillSwap has completely transformed my learning journey! I've found amazing mentors who have helped me master JavaScript and React. The platform is intuitive and the community is incredibly supportive.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-light text-dark me-2">JavaScript</span>
+                                    <span class="badge bg-light text-dark">React</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary" title="Mark as Helpful">Helpful</button>
+                            </div>
+                        </div>
+
+                        <!-- Review 2 -->
+                        <div class="review-item border-bottom pb-3 mb-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=michael" alt="Michael Rodriguez" class="rounded-circle me-2" width="40">
+                                <div>
+                                    <h6 class="mb-0">Michael Rodriguez</h6>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                                <small class="text-muted ms-auto">June 15, 2024</small>
+                            </div>
+                            <p class="mb-2">As a teacher, I love how easy it is to connect with students who are eager to learn. The scheduling feature is a lifesaver, and the verification system helps me showcase my expertise.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-light text-dark me-2">Python</span>
+                                    <span class="badge bg-light text-dark">Data Science</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary" title="Mark as Helpful">Helpful</button>
+                            </div>
+                        </div>
+
+                        <!-- Review 3 -->
+                        <div class="review-item">
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=emily" alt="Emily Johnson" class="rounded-circle me-2" width="40">
+                                <div>
+                                    <h6 class="mb-0">Emily Johnson</h6>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                                <small class="text-muted ms-auto">June 12, 2024</small>
+                            </div>
+                            <p class="mb-2">The skill verification system is fantastic! It gives me confidence in my abilities and helps me find the right mentors. I've learned so much in just a few months of using SkillSwap.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-light text-dark me-2">UI/UX Design</span>
+                                    <span class="badge bg-light text-dark">Figma</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary" title="Mark as Helpful">Helpful</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community Discussions -->
+                <div class="card">
+                    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Community Discussions</h5>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#discussionModal">
+                            <i class="fas fa-plus me-2"></i>Start Discussion
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="accordion" id="discussionsAccordion">
+                            <!-- Discussion 1 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#discussion1">
+                                        Best practices for online teaching
+                                    </button>
+                                </h2>
+                                <div id="discussion1" class="accordion-collapse collapse show" data-bs-parent="#discussionsAccordion">
+                                    <div class="accordion-body">
+                                        <p class="mb-2">What are your tips for keeping students engaged during online sessions?</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">Started by David Kim • 15 replies</small>
+                                            <button class="btn btn-sm btn-outline-primary" title="Join Discussion">Join Discussion</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Discussion 2 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#discussion2">
+                                        Skill verification tips
+                                    </button>
+                                </h2>
+                                <div id="discussion2" class="accordion-collapse collapse" data-bs-parent="#discussionsAccordion">
+                                    <div class="accordion-body">
+                                        <p class="mb-2">How to prepare for skill verification challenges?</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">Started by Lisa Wang • 8 replies</small>
+                                            <button class="btn btn-sm btn-outline-primary" title="Join Discussion">Join Discussion</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="modal fade" id="feedbackModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Write a Review</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" title="Close modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="reviewForm">
+                        <div class="mb-3">
+                            <label class="form-label">Rating</label>
+                            <div class="rating-selector">
+                                <i class="far fa-star" data-rating="1"></i>
+                                <i class="far fa-star" data-rating="2"></i>
+                                <i class="far fa-star" data-rating="3"></i>
+                                <i class="far fa-star" data-rating="4"></i>
+                                <i class="far fa-star" data-rating="5"></i>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Your Review</label>
+                            <textarea class="form-control" rows="4" placeholder="Share your experience with SkillSwap..."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Skills (optional)</label>
+                            <input type="text" class="form-control" placeholder="Add skills (comma separated)">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" title="Cancel review">Cancel</button>
+                    <button type="button" class="btn btn-primary" title="Submit review">Submit Review</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Discussion Modal -->
+    <div class="modal fade" id="discussionModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Start a Discussion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" title="Close modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="discussionForm">
+                        <div class="mb-3">
+                            <label class="form-label">Topic</label>
+                            <input type="text" class="form-control" placeholder="Enter discussion topic">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" rows="4" placeholder="Describe what you'd like to discuss..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" title="Cancel discussion">Cancel</button>
+                    <button type="button" class="btn btn-primary" title="Start discussion">Start Discussion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="dashboard.js"></script>
+    <script src="feedback.js"></script>
+</body>
+</html> 
